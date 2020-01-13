@@ -1,4 +1,5 @@
 package rockscissorspapergame;
+
 import java.util.ArrayList;
 
 public class Computers {
@@ -33,10 +34,10 @@ public class Computers {
     public void reSetResults() {
         results = "";
     }
-    
+
     //resets result to an empty string
     public void reSetArraylistResults() {
-       resultArray.clear();
+        resultArray.clear();
     }
 
     //get's the last winner
@@ -65,11 +66,13 @@ public class Computers {
             if (getLastWinner().equalsIgnoreCase("")) {
                 setLastWinner("A");
                 setConsecutiveWins();
-                resultArray.add(handleResults("A", playerOneSelection, "B",playerTwoSelection, "A Won!" ));
+                //adds results to the arraylist
+                resultArray.add(handleResults("A", playerOneSelection, "B", playerTwoSelection, "A Won!"));
             } else if (getLastWinner().equalsIgnoreCase("A")) {
                 // System.out.println("A Play1 "+playerOneSelection+" "+" Player2 "+playerTwoSelection+" winner "+playerOneSelection);
                 setConsecutiveWins();
-                resultArray.add(handleResults("A", playerOneSelection, "B",playerTwoSelection, "A Won!" ));
+                //adds results to the arraylist
+                resultArray.add(handleResults("A", playerOneSelection, "B", playerTwoSelection, "A Won!"));
             } else if (getLastWinner().equalsIgnoreCase("B")) {
                 //System.out.println("B Play1"+playerOneSelection+" "+" Player2 "+playerTwoSelection+" winner "+playerOneSelection);
                 resetConsecutiveWins();
@@ -77,23 +80,27 @@ public class Computers {
                 reSetArraylistResults();
                 setLastWinner("A");
                 setConsecutiveWins();
-               resultArray.add(handleResults("A", playerOneSelection, "B",playerTwoSelection, "A Won!" ));
+                //adds results to the arraylist
+                resultArray.add(handleResults("A", playerOneSelection, "B", playerTwoSelection, "A Won!"));
             }
 
         } else if (result(playerOneSelection, playerTwoSelection).equalsIgnoreCase(playerTwoSelection)) {// check if player B won
             if (getLastWinner().equalsIgnoreCase("")) {
                 setLastWinner("B");
                 setConsecutiveWins();
-                resultArray.add(handleResults("A", playerOneSelection, "B",playerTwoSelection, "B Won!" ));
+                //adds results to the arraylist
+                resultArray.add(handleResults("A", playerOneSelection, "B", playerTwoSelection, "B Won!"));
             } else if (getLastWinner().equalsIgnoreCase("B")) {
                 setConsecutiveWins();
-                resultArray.add(handleResults("A", playerOneSelection, "B",playerTwoSelection, "B Won!" ));
+                //adds results to the arraylist
+                resultArray.add(handleResults("A", playerOneSelection, "B", playerTwoSelection, "B Won!"));
             } else if (getLastWinner().equalsIgnoreCase("A")) {
                 resetConsecutiveWins();
                 reSetArraylistResults();
                 setLastWinner("B");
                 setConsecutiveWins();
-                resultArray.add(handleResults("A", playerOneSelection, "B",playerTwoSelection, "B Won!" ));
+                //adds results to the arraylist
+                resultArray.add(handleResults("A", playerOneSelection, "B", playerTwoSelection, "B Won!"));
             }
         } else if (result(playerOneSelection, playerTwoSelection).equalsIgnoreCase("draw")) {
             //System.out.println("draw here");
@@ -189,17 +196,19 @@ public class Computers {
         return choice;
 
     }
-    public String[] handleResults(String player1, String player1Selection, String player2, String player2Selection, String result){
+
+    public String[] handleResults(String player1, String player1Selection, String player2, String player2Selection, String result) {
+        //formats players data to be added to an arrayList
+        
+        //create an array of 5 elements
         String[] result_analysis = new String[5];
         result_analysis[0] = player1;
         result_analysis[1] = player1Selection;
         result_analysis[2] = player2;
         result_analysis[3] = player2Selection;
         result_analysis[4] = result;
-    
-    return result_analysis;
+
+        return result_analysis; //returns the created array list
     }
 
 }
-
-
