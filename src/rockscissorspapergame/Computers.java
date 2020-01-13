@@ -65,11 +65,11 @@ public class Computers {
             if (getLastWinner().equalsIgnoreCase("")) {
                 setLastWinner("A");
                 setConsecutiveWins();
-                resultArray.add(handleResults("A played", playerOneSelection, "B Played",playerTwoSelection, "A Won!" ));
+                resultArray.add(handleResults("A", playerOneSelection, "B",playerTwoSelection, "A Won!" ));
             } else if (getLastWinner().equalsIgnoreCase("A")) {
                 // System.out.println("A Play1 "+playerOneSelection+" "+" Player2 "+playerTwoSelection+" winner "+playerOneSelection);
                 setConsecutiveWins();
-                resultArray.add(handleResults("A played", playerOneSelection, "B Played",playerTwoSelection, "A Won!" ));
+                resultArray.add(handleResults("A", playerOneSelection, "B",playerTwoSelection, "A Won!" ));
             } else if (getLastWinner().equalsIgnoreCase("B")) {
                 //System.out.println("B Play1"+playerOneSelection+" "+" Player2 "+playerTwoSelection+" winner "+playerOneSelection);
                 resetConsecutiveWins();
@@ -77,24 +77,23 @@ public class Computers {
                 reSetArraylistResults();
                 setLastWinner("A");
                 setConsecutiveWins();
-               resultArray.add(handleResults("A played", playerOneSelection, "B Played",playerTwoSelection, "A Won!" ));
+               resultArray.add(handleResults("A", playerOneSelection, "B",playerTwoSelection, "A Won!" ));
             }
 
         } else if (result(playerOneSelection, playerTwoSelection).equalsIgnoreCase(playerTwoSelection)) {// check if player B won
             if (getLastWinner().equalsIgnoreCase("")) {
                 setLastWinner("B");
                 setConsecutiveWins();
-                resultArray.add(handleResults("A played", playerOneSelection, "B Played",playerTwoSelection, "B Won!" ));
+                resultArray.add(handleResults("A", playerOneSelection, "B",playerTwoSelection, "B Won!" ));
             } else if (getLastWinner().equalsIgnoreCase("B")) {
                 setConsecutiveWins();
-                String analysis = getConsecutiveWins() + " A played " + playerOneSelection + " <==> " + " B Played " + playerTwoSelection + " B Won!   ";
-                resultArray.add(handleResults("A played", playerOneSelection, "B Played",playerTwoSelection, "B Won!" ));
+                resultArray.add(handleResults("A", playerOneSelection, "B",playerTwoSelection, "B Won!" ));
             } else if (getLastWinner().equalsIgnoreCase("A")) {
                 resetConsecutiveWins();
                 reSetArraylistResults();
                 setLastWinner("B");
                 setConsecutiveWins();
-                resultArray.add(handleResults("A played", playerOneSelection, "B Played",playerTwoSelection, "B Won!" ));
+                resultArray.add(handleResults("A", playerOneSelection, "B",playerTwoSelection, "B Won!" ));
             }
         } else if (result(playerOneSelection, playerTwoSelection).equalsIgnoreCase("draw")) {
             //System.out.println("draw here");
