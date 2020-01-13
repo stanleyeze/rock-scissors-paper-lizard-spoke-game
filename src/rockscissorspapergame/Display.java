@@ -154,14 +154,21 @@ public class Display extends javax.swing.JFrame {
                 cp.playRound(achoice, bchoice); // play and return the winner
                 wins = cp.getConsecutiveWins();
             }
+            //create a table model
             DefaultTableModel model = (DefaultTableModel) jTable1.getModel();// creates a table model
-            removeRows(model);
-            for (int i = 0; i < cp.resultArray.size(); i++) {// loop through the array list
+            removeRows(model);//clears the table for new data
+            
+            //adds rows to the table from the arrayList
+            // loop through the array list
+            for (int i = 0; i < cp.resultArray.size(); i++) {
                 model.addRow(new Object[]{i, cp.resultArray.get(i)[0], cp.resultArray.get(i)[1], cp.resultArray.get(i)[2], cp.resultArray.get(i)[3], cp.resultArray.get(i)[4]});// display a row
             }
-            this.winnerLabel.setText("Player " + cp.getLastWinner().toUpperCase() + " WON!!!"); // display's the winner on the screen
-        } catch (Exception e) {
-            this.winnerLabel.setText("Select number of rounds"); // display's the winner on the screen
+            
+            // display's the winner on the screen
+            this.winnerLabel.setText("Player " + cp.getLastWinner().toUpperCase() + " WON!!!"); 
+        } catch (NumberFormatException e) {
+            // display's the winner on the screen
+            this.winnerLabel.setText("Select number of rounds"); 
         }
 
     }//GEN-LAST:event_runActionPerformed
@@ -218,11 +225,13 @@ public class Display extends javax.swing.JFrame {
     private javax.swing.JLabel winnerLabel;
     // End of variables declaration//GEN-END:variables
 
-public void removeRows(DefaultTableModel model){
-int rowCount = model.getRowCount();
-//Remove rows one by one from the end of the table
-for (int i = rowCount - 1; i >= 0; i--) {
-    model.removeRow(i);
-}
-}
+    
+    public void removeRows(DefaultTableModel model) {
+        //deletes all the table rows
+        int rowCount = model.getRowCount();
+        //Remove rows one by one from the end of the table
+        for (int i = rowCount - 1; i >= 0; i--) {
+            model.removeRow(i);
+        }
+    }
 }
