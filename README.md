@@ -17,7 +17,7 @@ The rules of RPSLS are the following :
 9) Spock vaporizes rock 
 
 
-HOW TO PLAY
+##HOW TO PLAY
 This game requires only one input from the user, The number of consecutive wins.
 It plays arround until one user wins!!
 
